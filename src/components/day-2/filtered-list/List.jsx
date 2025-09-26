@@ -1,5 +1,5 @@
 import { people } from "./data.js";
-import { getImageUrl } from "../../utils/script.js";
+import { getImageUrl } from "../../../utils/script.js";
 
 // export default function List() {
 //   const chemists = people.filter((person) => person.profession === "chemist");

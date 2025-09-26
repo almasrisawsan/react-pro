@@ -1,4 +1,4 @@
-import PostCard from "./PostCard";
+import PostCard from "../day-2/PostCard";
 
 const MainContent = () => {
   const data = [1, 2, 3, 4, 5, 6, 7, 8];

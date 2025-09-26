@@ -1,4 +1,4 @@
-import { getImageUrl } from "../../utils/script.js";
+import { getImageUrl } from "../../../utils/script.js";
 
 export default function Avatar({ person, size }) {
   return (
