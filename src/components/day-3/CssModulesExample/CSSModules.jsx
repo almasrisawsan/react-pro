@@ -6,8 +6,7 @@
 //   border: none;
 //   border-radius: 5px;
 // }
-
-import styles from "./Button.module.css";
+import styles from "./CSSModules.module.css";
 
 function CssModuleExample() {
   return <button className={styles.button}>Click Me</button>;
