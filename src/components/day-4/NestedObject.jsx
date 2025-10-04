@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useImmer } from "use-immer";
 
 export default function Form() {
-  const [person, setPerson] = useState({
+  const [person, updatePerson] = useImmer({
     name: "Niki de Saint Phalle",
     artwork: {
       title: "Blue Nana",
@@ -10,60 +10,60 @@ export default function Form() {
     },
   });
 
-  function handleNameChange(e) {
-    setPerson({
-      ...person,
-      name: e.target.value,
+  const handleNameChange = (e) => {
+    updatePerson((draft) => {
+      draft.name = e.target.value;
     });
-  }
+  };
 
-  function handleTitleChange(e) {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        title: e.target.value,
-      },
+  const handleTitleChange = (e) => {
+    updatePerson((draft) => {
+      draft.artwork.title = e.target.value;
     });
-  }
+  };
 
-  function handleCityChange(e) {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        city: e.target.value,
-      },
+  const handleCityChange = (e) => {
+    updatePerson((draft) => {
+      draft.artwork.city = e.target.value;
     });
-  }
+  };
 
-  function handleImageChange(e) {
-    setPerson({
-      ...person,
-      artwork: {
-        ...person.artwork,
-        image: e.target.value,
-      },
+  const handleImageChange = (e) => {
+    updatePerson((draft) => {
+      draft.artwork.image = e.target.value;
     });
-  }
+  };
 
+  console.log("Rendering...", person);
   return (
     <>
       <label>
         Name:
-        <input value={person.name} onChange={handleNameChange} />
+        <input name="name" value={person.name} onChange={handleNameChange} />
       </label>
       <label>
         Title:
-        <input value={person.artwork.title} onChange={handleTitleChange} />
+        <input
+          name="title"
+          value={person.artwork.title}
+          onChange={handleTitleChange}
+        />
       </label>
       <label>
         City:
-        <input value={person.artwork.city} onChange={handleCityChange} />
+        <input
+          name="city"
+          value={person.artwork.city}
+          onChange={handleCityChange}
+        />
       </label>
       <label>
         Image:
-        <input value={person.artwork.image} onChange={handleImageChange} />
+        <input
+          name="image"
+          value={person.artwork.image}
+          onChange={handleImageChange}
+        />
       </label>
       <p>
         <i>{person.artwork.title}</i>

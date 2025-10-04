@@ -2,39 +2,33 @@ import { useState } from "react";
 
 export default function Form() {
   const [person, setPerson] = useState({
-    firstName: "Barbara",
-    lastName: "Hepworth",
-    email: "bhepworth@sculpture.com",
+    firstName: "",
+    lastName: "",
+    email: "",
   });
 
-  function handleFirstNameChange(e) {
-    person.firstName = e.target.value;
-  }
+  const handleFormChange = (e) => {
+    setPerson({ ...person, [e.target.name]: e.target.value });
+  };
 
-  function handleLastNameChange(e) {
-    person.lastName = e.target.value;
-  }
-
-  function handleEmailChange(e) {
-    person.email = e.target.value;
-  }
+  const { firstName, lastName, email } = person;
 
   return (
     <>
       <label>
         First name:
-        <input value={person.firstName} onChange={handleFirstNameChange} />
+        <input name="firstName" value={firstName} onChange={handleFormChange} />
       </label>
       <label>
         Last name:
-        <input value={person.lastName} onChange={handleLastNameChange} />
+        <input name="lastName" value={lastName} onChange={handleFormChange} />
       </label>
       <label>
         Email:
-        <input value={person.email} onChange={handleEmailChange} />
+        <input name="email" value={email} onChange={handleFormChange} />
       </label>
       <p>
-        {person.firstName} {person.lastName} ({person.email})
+        {firstName} {lastName} {email}
       </p>
     </>
   );

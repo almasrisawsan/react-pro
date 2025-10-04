@@ -1,16 +1,25 @@
 import { useState } from "react";
 
 export default function MovingDot() {
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
+  //   const [position, setPosition] = useState({
+  //     x: 0,
+  //     y: 0,
+  //   });
+
+  //   const position = {
+  //     x: 0,
+  //     y: 0,
+  //   };
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const updatePosition = (e) => {
+    setPosition({ x: e.clientX, y: e.clientY });
+  };
+
   return (
     <div
-      onPointerMove={(e) => {
-        position.x = e.clientX;
-        position.y = e.clientY;
-      }}
+      onPointerMove={updatePosition}
       style={{
         position: "relative",
         width: "100vw",
