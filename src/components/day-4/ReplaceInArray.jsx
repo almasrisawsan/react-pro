@@ -5,18 +5,28 @@ let initialCounters = [0, 0, 0];
 export default function CounterList() {
   const [counters, setCounters] = useState(initialCounters);
 
-  function handleIncrementClick(index) {
-    const nextCounters = counters.map((c, i) => {
-      if (i === index) {
-        // Increment the clicked counter
-        return c + 1;
+  const handleIncrementClick = (index) => {
+    const newCounters = counters.map((counter, i) => {
+      if (index === i) {
+        return counter + 1;
       } else {
-        // The rest haven't changed
-        return c;
+        return counter;
       }
     });
-    setCounters(nextCounters);
-  }
+    setCounters(newCounters);
+  };
+  //   function handleIncrementClick(index) {
+  //     const nextCounters = counters.map((c, i) => {
+  //       if (i === index) {
+  //         // Increment the clicked counter
+  //         return c + 1;
+  //       } else {
+  //         // The rest haven't changed
+  //         return c;
+  //       }
+  //     });
+  //     setCounters(nextCounters);
+  //   }
 
   return (
     <ul>

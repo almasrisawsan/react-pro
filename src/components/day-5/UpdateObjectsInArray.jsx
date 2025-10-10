@@ -1,15 +1,21 @@
 import { useState } from "react";
 
 let nextId = 3;
-const initialList = [
+const myListArray = [
+  { id: 0, title: "Big Bellies", seen: false },
+  { id: 1, title: "Lunar Landscape", seen: false },
+  { id: 2, title: "Terracotta Army", seen: true },
+];
+
+const yourListArray = [
   { id: 0, title: "Big Bellies", seen: false },
   { id: 1, title: "Lunar Landscape", seen: false },
   { id: 2, title: "Terracotta Army", seen: true },
 ];
 
 export default function BucketList() {
-  const [myList, setMyList] = useState(initialList);
-  const [yourList, setYourList] = useState(initialList);
+  const [myList, setMyList] = useState(myListArray);
+  const [yourList, setYourList] = useState(yourListArray);
 
   function handleToggleMyList(artworkId, nextSeen) {
     const myNextList = [...myList];

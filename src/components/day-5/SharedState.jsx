@@ -1,28 +1,40 @@
 import { useState } from "react";
-
-function Panel({ title, children }) {
-  const [isActive, setIsActive] = useState(false);
-  return (
-    <section className="panel">
-      <h3>{title}</h3>
-      {isActive ? (
-        <p>{children}</p>
-      ) : (
-        <button onClick={() => setIsActive(true)}>Show</button>
-      )}
-    </section>
-  );
-}
+import Panel from "./Panel";
 
 export default function Accordion() {
+  const [panels, setPanels] = useState([
+    { id: 0, isActive: false },
+    { id: 1, isActive: false },
+  ]);
+
+  const setPanelActive = (id) => {
+    const panel = panels.map((item) => {
+      return item.id === id
+        ? { ...item, isActive: true }
+        : { ...item, isActive: false };
+    });
+    setPanels(panel);
+  };
+
+  console.log(panels);
   return (
     <>
       <h2>Almaty, Kazakhstan</h2>
-      <Panel title="About">
+      <Panel
+        title="About"
+        id={0}
+        isActive={panels[0].isActive}
+        setActive={setPanelActive}
+      >
         With a population of about 2 million, Almaty is Kazakhstan's largest
         city. From 1929 to 1997, it was its capital city.
       </Panel>
-      <Panel title="Etymology">
+      <Panel
+        title="Etymology"
+        id={1}
+        isActive={panels[1].isActive}
+        setActive={setPanelActive}
+      >
         The name comes from <span lang="kk-KZ">алма</span>, the Kazakh word for
         "apple" and is often translated as "full of apples". In fact, the region
         surrounding Almaty is thought to be the ancestral home of the apple, and
