@@ -1,8 +1,12 @@
 import { useRef } from "react";
 
-function MyInput({ ref }) {
+// function MyInput({ ref }) {
+//   return <input ref={ref} />;
+// }
+
+const MyInput = ({ ref }) => {
   return <input ref={ref} />;
-}
+};
 
 export default function MyForm() {
   const inputRef = useRef(null);

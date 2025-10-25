@@ -1,30 +1,37 @@
-// state example
-import { useState } from "react";
+// ref example
+import { useRef, useState } from "react";
 
-export default function Counter() {
-  const [count, setCount] = useState(0);
+const Counter = () => {
+  const [counter, setCounter] = useState(0);
+
+  function handleClickCounter2() {
+    setCounter(counter + 1);
+  }
+  return (
+    <>
+      <button onClick={handleClickCounter2}>
+        UseSate: You clicked {counter} times
+      </button>
+      {(counter === 0 || counter > 3) && <CounterComponent />}
+    </>
+  );
+};
+
+export function CounterComponent() {
+  let countRef = useRef(0);
 
   function handleClick() {
-    setCount(count + 1);
+    countRef.current = countRef.current + 1;
+    console.log("Inside handleClick function", countRef.current);
   }
 
-  return <button onClick={handleClick}>You clicked {count} times</button>;
+  console.log("From CounterComponent outside handleClick", countRef.current);
+
+  return (
+    <button onClick={handleClick}>
+      UseRef: You clicked {countRef.current} times
+    </button>
+  );
 }
 
-// ref example
-// import { useRef } from 'react';
-
-// export default function Counter() {
-//   let countRef = useRef(0);
-
-//   function handleClick() {
-//     // This doesn't re-render the component!
-//     countRef.current = countRef.current + 1;
-//   }
-
-//   return (
-//     <button onClick={handleClick}>
-//       You clicked {countRef.current} times
-//     </button>
-//   );
-// }
+export default Counter;
