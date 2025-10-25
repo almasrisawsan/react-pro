@@ -5,10 +5,6 @@ if (typeof window !== "undefined") {
   loadDataFromLocalStorage();
 }
 
-function App() {
-  // ...
-}
-
 // Not an Effect: Buying a product
 useEffect(() => {
   // 🔴 Wrong: This Effect fires twice in development, exposing a problem in the code.

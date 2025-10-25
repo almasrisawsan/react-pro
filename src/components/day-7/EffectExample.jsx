@@ -5,7 +5,7 @@ function Playground() {
 
   useEffect(() => {
     function onTimeout() {
-      console.log("⏰ " + text);
+      console.log("Timeout ⏰ " + text);
     }
 
     console.log('🔵 Schedule "' + text + '" log');
@@ -28,7 +28,7 @@ function Playground() {
   );
 }
 
-export default function App() {
+export default function TimerExample() {
   const [show, setShow] = useState(false);
   return (
     <>

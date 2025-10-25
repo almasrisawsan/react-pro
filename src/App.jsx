@@ -1,9 +1,9 @@
-import InfiniteLoopExample from "./components/day-6/MaxUpdate";
+import TimerExample from "./components/day-7/EffectExample";
 
 export default function App() {
   return (
     <div style={{ padding: 100 }}>
-      <InfiniteLoopExample />
+      <TimerExample />
     </div>
   );
 }
@@ -26,7 +26,7 @@ export default function App() {
 // You don't need effect when -> Example3.jsx
 // Rule -> You can’t “choose” your dependencies. They are determined by the code inside the Effect.
 // 10. Ex16.jsx, Ex17.jsx, Ex18.jsx
-// 11. You might not need an effect:
+// 11. You might not need an effect: (Example.jsx)
 // - Updating state based on props or state -> Example1
 // - Caching expensive calculations -> Example2
 // - Resetting all state when a prop changes -> Example3
@@ -39,3 +39,5 @@ export default function App() {
 // - How to tell if its expensive calculation?
 // 16. useCallback: is a React Hook used for performance optimization by preventing unnecessary re-creation of a function during a component's re-renders. - > Callback.jsx
 // 17. Exercises: Ex20.jsx, Ex21.jsx, Ex22.jsx
+// 18. useContext -> ContextExample1.jsx, ContextExample2.jsx, ContextExample3.jsx, ContextExample4.jsx, ContextExample5.jsx
+//
