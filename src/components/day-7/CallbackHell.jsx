@@ -34,35 +34,15 @@ const CallbackHellExample = () => {
     // Start of the asynchronous chain
     setIsLoading(true);
 
-    fetchDataStep1("Start Data")
-      .then((data1) => {
-        // --- Start of Callback Hell Indentation ---
-        console.log("Callback 1 executed.");
-        fetchDataStep2(data1)
-          .then((data2) => {
-            console.log("Callback 2 executed.");
-            fetchDataStep3(data2)
-              .then((data3) => {
-                console.log("Callback 3 executed. Chain complete.");
-                // Final action: update state
-                setData(data3);
-                setIsLoading(false);
-              })
-              .catch((err) => {
-                console.error("Error in Step 3:", err);
-                setIsLoading(false);
-              });
-          })
-          .catch((err) => {
-            console.error("Error in Step 2:", err);
-            setIsLoading(false);
-          });
-      })
-      .catch((err) => {
-        console.error("Error in Step 1:", err);
-        setIsLoading(false);
-      });
-    // --- End of Callback Hell Indentation ---
+    const executeNestedCalls = async () => {
+      const data1 = await fetchDataStep1("Start Data");
+      const data2 = await fetchDataStep2(data1);
+      const data3 = await fetchDataStep3(data2);
+      setData(data3);
+      setIsLoading(false);
+    };
+
+    executeNestedCalls();
   }, []); // Run only on mount
 
   return (

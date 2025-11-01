@@ -3,12 +3,7 @@ function Form() {
   const [firstName, setFirstName] = useState("Taylor");
   const [lastName, setLastName] = useState("Swift");
 
-  // 🔴 Avoid: redundant state and unnecessary Effect
-  const [fullName, setFullName] = useState("");
-  useEffect(() => {
-    setFullName(firstName + " " + lastName);
-  }, [firstName, lastName]);
-  // ...
+  const fullname = firstName + " " + lastName;
 }
 
 // // correct:
@@ -25,10 +20,7 @@ function TodoList({ todos, filter }) {
   const [newTodo, setNewTodo] = useState("");
 
   // 🔴 Avoid: redundant state and unnecessary Effect
-  const [visibleTodos, setVisibleTodos] = useState([]);
-  useEffect(() => {
-    setVisibleTodos(getFilteredTodos(todos, filter));
-  }, [todos, filter]);
+  const visibleTodos = getFilteredTodos(todos, filter);
 
   // ...
 }
@@ -81,13 +73,13 @@ function List({ items }) {
 }
 
 //correct
-// function List({ items }) {
-//   const [isReverse, setIsReverse] = useState(false);
-//   const [selectedId, setSelectedId] = useState(null);
-//   // ✅ Best: Calculate everything during rendering
-//   const selection = items.find((item) => item.id === selectedId) ?? null;
-//   // ...
-// }
+function List({ items }) {
+  const [isReverse, setIsReverse] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+  // ✅ Best: Calculate everything during rendering
+  const selection = items.find((item) => item.id === selectedId) ?? null;
+  // ...
+}
 
 //Example5:
 function Game() {
@@ -130,30 +122,30 @@ function Game() {
 
 
   //Correct
-//   function Game() {
-//   const [card, setCard] = useState(null);
-//   const [goldCardCount, setGoldCardCount] = useState(0);
-//   const [round, setRound] = useState(1);
+  function Game() {
+  const [card, setCard] = useState(null);
+  const [goldCardCount, setGoldCardCount] = useState(0);
+  const [round, setRound] = useState(1);
 
-//   // ✅ Calculate what you can during rendering
-//   const isGameOver = round > 5;
+  // ✅ Calculate what you can during rendering
+  const isGameOver = round > 5;
 
-//   function handlePlaceCard(nextCard) {
-//     if (isGameOver) {
-//       throw Error('Game already ended.');
-//     }
+  function handlePlaceCard(nextCard) {
+    if (isGameOver) {
+      throw Error('Game already ended.');
+    }
 
-//     // ✅ Calculate all the next state in the event handler
-//     setCard(nextCard);
-//     if (nextCard.gold) {
-//       if (goldCardCount <= 3) {
-//         setGoldCardCount(goldCardCount + 1);
-//       } else {
-//         setGoldCardCount(0);
-//         setRound(round + 1);
-//         if (round === 5) {
-//           alert('Good game!');
-//         }
-//       }
-//     }
-//   }
+    // ✅ Calculate all the next state in the event handler
+    setCard(nextCard);
+    if (nextCard.gold) {
+      if (goldCardCount <= 3) {
+        setGoldCardCount(goldCardCount + 1);
+      } else {
+        setGoldCardCount(0);
+        setRound(round + 1);
+        if (round === 5) {
+          alert('Good game!');
+        }
+      }
+    }
+  }

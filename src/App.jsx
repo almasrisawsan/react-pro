@@ -1,9 +1,9 @@
-import TimerExample from "./components/day-7/EffectExample";
+import TodoList from "./components/day-7/MemoExample";
 
 export default function App() {
   return (
     <div style={{ padding: 100 }}>
-      <TimerExample />
+      <TodoList />
     </div>
   );
 }
@@ -33,11 +33,12 @@ export default function App() {
 // - Adjusting some state when a prop changes -> Example4
 // - Chains of computations -> Example5
 // 12. Callback hell -> CallbackHell.jsx
-// 13. Ex19.jsx
-// 14. Memo -> Unchanged.jsx
-// 15. useMemo ->  Call useMemo at the top level of your component to cache a calculation between re-renders: -> MemoExample.jsx
+// 13. Memo -> Unchanged.jsx
+// 14. useMemo ->  Call useMemo at the top level of your component to cache a calculation between re-renders: -> MemoExample.jsx
+// 15. Ex19.jsx
 // - How to tell if its expensive calculation?
 // 16. useCallback: is a React Hook used for performance optimization by preventing unnecessary re-creation of a function during a component's re-renders. - > Callback.jsx
 // 17. Exercises: Ex20.jsx, Ex21.jsx, Ex22.jsx
 // 18. useContext -> ContextExample1.jsx, ContextExample2.jsx, ContextExample3.jsx, ContextExample4.jsx, ContextExample5.jsx
-//
+// 19. custom hooks -> CustomHookExample1.jsx, CustomHookExample2.jsx, CustomHookExample3.jsx
+// 20. Ex23.jsx, Ex24.jsx, Ex25.jsx
