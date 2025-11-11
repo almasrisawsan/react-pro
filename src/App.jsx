@@ -1,9 +1,9 @@
-import TodoList from "./components/day-7/MemoExample";
+import TaskApp from "./components/day-9/ReducerExample";
 
 export default function App() {
   return (
     <div style={{ padding: 100 }}>
-      <TodoList />
+      <TaskApp />
     </div>
   );
 }
@@ -35,10 +35,15 @@ export default function App() {
 // 12. Callback hell -> CallbackHell.jsx
 // 13. Memo -> Unchanged.jsx
 // 14. useMemo ->  Call useMemo at the top level of your component to cache a calculation between re-renders: -> MemoExample.jsx
-// 15. Ex19.jsx
+// 15. Ex19.jsx (React Compiler automatically memoizes values and functions, reducing the need for manual useMemo calls)
 // - How to tell if its expensive calculation?
-// 16. useCallback: is a React Hook used for performance optimization by preventing unnecessary re-creation of a function during a component's re-renders. - > Callback.jsx
+// console.time("filter array");
+// const visibleTodos = filterTodos(todos, tab);
+// console.timeEnd("filter array");
+// 16. useCallback: is a React Hook used for performance optimization by preventing unnecessary re-creation of a function during a component's re-renders. - > Callback.jsx, FullExample.jsx
 // 17. Exercises: Ex20.jsx, Ex21.jsx, Ex22.jsx
-// 18. useContext -> ContextExample1.jsx, ContextExample2.jsx, ContextExample3.jsx, ContextExample4.jsx, ContextExample5.jsx
-// 19. custom hooks -> CustomHookExample1.jsx, CustomHookExample2.jsx, CustomHookExample3.jsx
-// 20. Ex23.jsx, Ex24.jsx, Ex25.jsx
+// 18. useReducer -> ReducerExample1.jsx // add another example
+// 19. Ex27.jsx, Ex28.jsx
+// 20. useContext -> ContextExample1.jsx, ContextExample2.jsx, ContextExample3.jsx, ContextExample4.jsx, ContextExample5.jsx
+// 21. custom hooks -> CustomHookExample1.jsx, CustomHookExample2.jsx, CustomHookExample3.jsx
+// 22. Ex23.jsx, Ex24.jsx, Ex25.jsx, Ex26.jsx

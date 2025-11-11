@@ -13,11 +13,12 @@ function filterTodos(todos, filters) {
 }
 
 const TodoList = (todos, filters) => {
+  console.time("filter array");
   const filteredTodos = useMemo(
     () => filterTodos(todos, filters),
     [todos, filters]
   );
-
+  console.timeEnd("filter array");
   return (
     <>
       {filteredTodos.map((todo) => (
