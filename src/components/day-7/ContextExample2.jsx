@@ -27,15 +27,20 @@ function Form({ children }) {
 
 function LoginButton() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-
   if (currentUser !== null) {
-    return <p>You logged in as {currentUser.name}.</p>;
+    return (
+      <>
+        <p>You logged in as {currentUser.name}.</p>
+        <p>Your age is {currentUser.age}.</p>
+        <p>Your fav color is {currentUser.color}.</p>
+      </>
+    );
   }
 
   return (
     <Button
       onClick={() => {
-        setCurrentUser({ name: "Advika" });
+        setCurrentUser({ name: "Advika", age: 30, color: "white" });
       }}
     >
       Log in as Advika
@@ -43,14 +48,15 @@ function LoginButton() {
   );
 }
 
-function Panel({ title, children }) {
+const Panel = ({ title, children }) => {
+  console.log("Rendering Panel:", title);
   return (
     <section className="panel">
       <h1>{title}</h1>
       {children}
     </section>
   );
-}
+};
 
 function Button({ children, onClick }) {
   return (

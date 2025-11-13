@@ -18,6 +18,7 @@ const TodoList = (todos, filters) => {
     () => filterTodos(todos, filters),
     [todos, filters]
   );
+
   console.timeEnd("filter array");
   return (
     <>

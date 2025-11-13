@@ -1,8 +1,8 @@
 //Updating a value via context
 
-import { createContext, useContext, useState } from "react";
+import { createContext, memo, useContext, useState } from "react";
 
-const ThemeContext = createContext(null);
+const ThemeContext = createContext("light");
 
 export default function MyApp() {
   const [theme, setTheme] = useState("light");
@@ -23,7 +23,10 @@ export default function MyApp() {
   );
 }
 
-function Form({ children }) {
+function Form() {
+  const theme = useContext(ThemeContext);
+
+  console.log("Theme in Form:", theme);
   return (
     <Panel title="Welcome">
       <Button>Sign up</Button>
@@ -32,8 +35,9 @@ function Form({ children }) {
   );
 }
 
-function Panel({ title, children }) {
+const Panel = memo(({ title, children }) => {
   const theme = useContext(ThemeContext);
+  console.log("Theme in Panel:", theme);
   const className = "panel-" + theme;
   return (
     <section className={className}>
@@ -41,10 +45,11 @@ function Panel({ title, children }) {
       {children}
     </section>
   );
-}
+});
 
 function Button({ children }) {
   const theme = useContext(ThemeContext);
+  console.log("Theme in Button:", theme);
   const className = "button-" + theme;
   return <button className={className}>{children}</button>;
 }

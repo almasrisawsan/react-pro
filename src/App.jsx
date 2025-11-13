@@ -1,9 +1,10 @@
-import TaskApp from "./components/day-9/ReducerExample";
+import MyApp from "./components/day-8/CustomHookExample1";
+import SaveButton from "./components/day-8/CustomHookExample1";
 
 export default function App() {
   return (
     <div style={{ padding: 100 }}>
-      <TaskApp />
+      <MyApp />
     </div>
   );
 }
@@ -41,9 +42,10 @@ export default function App() {
 // const visibleTodos = filterTodos(todos, tab);
 // console.timeEnd("filter array");
 // 16. useCallback: is a React Hook used for performance optimization by preventing unnecessary re-creation of a function during a component's re-renders. - > Callback.jsx, FullExample.jsx
-// 17. Exercises: Ex20.jsx, Ex21.jsx, Ex22.jsx
-// 18. useReducer -> ReducerExample1.jsx // add another example
-// 19. Ex27.jsx, Ex28.jsx
-// 20. useContext -> ContextExample1.jsx, ContextExample2.jsx, ContextExample3.jsx, ContextExample4.jsx, ContextExample5.jsx
-// 21. custom hooks -> CustomHookExample1.jsx, CustomHookExample2.jsx, CustomHookExample3.jsx
-// 22. Ex23.jsx, Ex24.jsx, Ex25.jsx, Ex26.jsx
+// 18. useReducer -> ReducerExample1.jsx, ReducerExample2.jsx
+// 21. useContext -> ContextExample1.jsx, ContextExample2.jsx, ContextExample3.jsx, ContextExample4.jsx, ContextExample5.jsx
+// 22. custom hooks -> CustomHookExample1.jsx, CustomHookExample2.jsx, CustomHookExample3.jsx
+// 23. Ex23.jsx, Ex24.jsx, Ex25.jsx, Ex26.jsx
+// 19. Exercises: Ex20.jsx, Ex21.jsx, Ex22.jsx
+// 24. Ex27.jsx, Ex28.jsx
+// 25. Ex30.jsx, Ex31.jsx
