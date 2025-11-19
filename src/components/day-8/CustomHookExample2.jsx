@@ -1,30 +1,38 @@
 import { useState } from "react";
 
+const useFormInput = (initialValue) => {
+  const [value, setValue] = useState(initialValue);
+
+  const handleValueChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  return { value, onChange: handleValueChange };
+};
+
 export default function Form() {
-  const [firstName, setFirstName] = useState("Mary");
-  const [lastName, setLastName] = useState("Poppins");
+  const firstNameProps = useFormInput("Mary");
+  const lastNameProps = useFormInput("Poppins");
+  const fileProps = useFormInput("");
 
-  function handleFirstNameChange(e) {
-    setFirstName(e.target.value);
-  }
-
-  function handleLastNameChange(e) {
-    setLastName(e.target.value);
-  }
-
+  console.log("File input props:", fileProps);
   return (
     <>
       <label>
         First name:
-        <input value={firstName} onChange={handleFirstNameChange} />
+        <input {...firstNameProps} />
       </label>
       <label>
         Last name:
-        <input value={lastName} onChange={handleLastNameChange} />
+        <input {...lastNameProps} />
+      </label>
+      <label>
+        File
+        <input type="file" {...fileProps} />
       </label>
       <p>
         <b>
-          Good morning, {firstName} {lastName}.
+          Good morning, {firstNameProps.value} {lastNameProps.value}.
         </b>
       </p>
     </>

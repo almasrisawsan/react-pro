@@ -20,6 +20,7 @@ const useOnlineStatus = () => {
 
   return isOnline;
 };
+
 export default function SaveButton() {
   const isOnline = useOnlineStatus();
 
